@@ -4,7 +4,7 @@
 #
 Name     : baloo-widgets
 Version  : 18.04.3
-Release  : 2
+Release  : 3
 URL      : https://github.com/KDE/baloo-widgets/archive/v18.04.3.tar.gz
 Source0  : https://github.com/KDE/baloo-widgets/archive/v18.04.3.tar.gz
 Summary  : No detailed summary available
@@ -87,7 +87,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1532191523
+export SOURCE_DATE_EPOCH=1532208659
 mkdir clr-build
 pushd clr-build
 %cmake ..
@@ -95,7 +95,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1532191523
+export SOURCE_DATE_EPOCH=1532208659
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/baloo-widgets
 cp COPYING.LIB %{buildroot}/usr/share/doc/baloo-widgets/COPYING.LIB
