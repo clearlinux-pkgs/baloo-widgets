@@ -4,7 +4,7 @@
 #
 Name     : baloo-widgets
 Version  : 18.04.3
-Release  : 1
+Release  : 2
 URL      : https://github.com/KDE/baloo-widgets/archive/v18.04.3.tar.gz
 Source0  : https://github.com/KDE/baloo-widgets/archive/v18.04.3.tar.gz
 Summary  : No detailed summary available
