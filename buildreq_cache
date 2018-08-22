@@ -1,11 +1,11 @@
-18.07.90
-kwidgetsaddons-dev
-kfilemetadata-dev
-kjobwidgets-dev
+18.08.0
 baloo-dev
-kxmlgui-dev
 kcodecs-dev
+kcompletion-dev
+kfilemetadata-dev
 kio-dev
 kitemviews-dev
-kcompletion-dev
+kjobwidgets-dev
+kwidgetsaddons-dev
+kxmlgui-dev
 solid-dev
