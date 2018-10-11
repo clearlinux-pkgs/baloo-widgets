@@ -4,7 +4,7 @@
 #
 Name     : baloo-widgets
 Version  : 18.08.2
-Release  : 8
+Release  : 9
 URL      : https://github.com/KDE/baloo-widgets/archive/v18.08.2.tar.gz
 Source0  : https://github.com/KDE/baloo-widgets/archive/v18.08.2.tar.gz
 Summary  : No detailed summary available
@@ -17,8 +17,16 @@ Requires: baloo-widgets-data
 BuildRequires : baloo-dev
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
+BuildRequires : kcodecs-dev
+BuildRequires : kcompletion-dev
 BuildRequires : kfilemetadata-dev
+BuildRequires : kio-dev
+BuildRequires : kitemviews-dev
+BuildRequires : kjobwidgets-dev
+BuildRequires : kwidgetsaddons-dev
+BuildRequires : kxmlgui-dev
 BuildRequires : qtbase-dev mesa-dev
+BuildRequires : solid-dev
 
 %description
 No detailed description available
@@ -79,7 +87,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1539266290
+export SOURCE_DATE_EPOCH=1539268760
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
@@ -87,7 +95,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1539266290
+export SOURCE_DATE_EPOCH=1539268760
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/baloo-widgets
 cp COPYING %{buildroot}/usr/share/doc/baloo-widgets/COPYING
