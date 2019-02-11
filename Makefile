@@ -1,5 +1,5 @@
 PKG_NAME := baloo-widgets
-URL = https://github.com/KDE/baloo-widgets/archive/v18.12.2.tar.gz
+URL = https://download.kde.org/stable/applications/18.12.2/src/baloo-widgets-18.12.2.tar.xz
 ARCHIVES = 
 
 include ../common/Makefile.common
