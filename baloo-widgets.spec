@@ -6,7 +6,7 @@
 #
 Name     : baloo-widgets
 Version  : 18.12.3
-Release  : 17
+Release  : 18
 URL      : https://download.kde.org/stable/applications/18.12.3/src/baloo-widgets-18.12.3.tar.xz
 Source0  : https://download.kde.org/stable/applications/18.12.3/src/baloo-widgets-18.12.3.tar.xz
 Source99 : https://download.kde.org/stable/applications/18.12.3/src/baloo-widgets-18.12.3.tar.xz.sig
@@ -21,8 +21,16 @@ Requires: baloo-widgets-locales = %{version}-%{release}
 BuildRequires : baloo-dev
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
+BuildRequires : kcodecs-dev
+BuildRequires : kcompletion-dev
 BuildRequires : kfilemetadata-dev
+BuildRequires : kio-dev
+BuildRequires : kitemviews-dev
+BuildRequires : kjobwidgets-dev
+BuildRequires : kwidgetsaddons-dev
+BuildRequires : kxmlgui-dev
 BuildRequires : qtbase-dev mesa-dev
+BuildRequires : solid-dev
 
 %description
 No detailed description available
@@ -92,16 +100,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1551981768
+export SOURCE_DATE_EPOCH=1555315628
 mkdir -p clr-build
 pushd clr-build
-export LDFLAGS="${LDFLAGS} -fno-lto"
 %cmake ..
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1551981768
+export SOURCE_DATE_EPOCH=1555315628
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/baloo-widgets
 cp COPYING %{buildroot}/usr/share/package-licenses/baloo-widgets/COPYING
