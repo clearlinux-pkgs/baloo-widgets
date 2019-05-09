@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : baloo-widgets
-Version  : 19.04.0
-Release  : 20
-URL      : https://download.kde.org/stable/applications/19.04.0/src/baloo-widgets-19.04.0.tar.xz
-Source0  : https://download.kde.org/stable/applications/19.04.0/src/baloo-widgets-19.04.0.tar.xz
-Source99 : https://download.kde.org/stable/applications/19.04.0/src/baloo-widgets-19.04.0.tar.xz.sig
+Version  : 19.04.1
+Release  : 21
+URL      : https://download.kde.org/stable/applications/19.04.1/src/baloo-widgets-19.04.1.tar.xz
+Source0  : https://download.kde.org/stable/applications/19.04.1/src/baloo-widgets-19.04.1.tar.xz
+Source99 : https://download.kde.org/stable/applications/19.04.1/src/baloo-widgets-19.04.1.tar.xz.sig
 Summary  : Widgets for Baloo
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.1
@@ -21,16 +21,8 @@ Requires: baloo-widgets-locales = %{version}-%{release}
 BuildRequires : baloo-dev
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
-BuildRequires : kcodecs-dev
-BuildRequires : kcompletion-dev
 BuildRequires : kfilemetadata-dev
-BuildRequires : kio-dev
-BuildRequires : kitemviews-dev
-BuildRequires : kjobwidgets-dev
-BuildRequires : kwidgetsaddons-dev
-BuildRequires : kxmlgui-dev
 BuildRequires : qtbase-dev mesa-dev
-BuildRequires : solid-dev
 
 %description
 No detailed description available
@@ -60,6 +52,7 @@ Requires: baloo-widgets-lib = %{version}-%{release}
 Requires: baloo-widgets-bin = %{version}-%{release}
 Requires: baloo-widgets-data = %{version}-%{release}
 Provides: baloo-widgets-devel = %{version}-%{release}
+Requires: baloo-widgets = %{version}-%{release}
 Requires: baloo-widgets = %{version}-%{release}
 
 %description dev
@@ -93,14 +86,14 @@ locales components for the baloo-widgets package.
 
 
 %prep
-%setup -q -n baloo-widgets-19.04.0
+%setup -q -n baloo-widgets-19.04.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1556995144
+export SOURCE_DATE_EPOCH=1557430742
 mkdir -p clr-build
 pushd clr-build
 export AR=gcc-ar
@@ -115,7 +108,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1556995144
+export SOURCE_DATE_EPOCH=1557430742
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/baloo-widgets
 cp COPYING %{buildroot}/usr/share/package-licenses/baloo-widgets/COPYING
@@ -154,7 +147,7 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib64/libKF5BalooWidgets.so.19.4.0
+/usr/lib64/libKF5BalooWidgets.so.19.4.1
 /usr/lib64/libKF5BalooWidgets.so.5
 /usr/lib64/qt5/plugins/baloofilepropertiesplugin.so
 /usr/lib64/qt5/plugins/kf5/kfileitemaction/tagsfileitemaction.so
