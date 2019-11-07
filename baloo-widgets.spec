@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : baloo-widgets
-Version  : 19.08.2
-Release  : 26
-URL      : https://download.kde.org/stable/applications/19.08.2/src/baloo-widgets-19.08.2.tar.xz
-Source0  : https://download.kde.org/stable/applications/19.08.2/src/baloo-widgets-19.08.2.tar.xz
-Source1 : https://download.kde.org/stable/applications/19.08.2/src/baloo-widgets-19.08.2.tar.xz.sig
+Version  : 19.08.3
+Release  : 27
+URL      : https://download.kde.org/stable/applications/19.08.3/src/baloo-widgets-19.08.3.tar.xz
+Source0  : https://download.kde.org/stable/applications/19.08.3/src/baloo-widgets-19.08.3.tar.xz
+Source1 : https://download.kde.org/stable/applications/19.08.3/src/baloo-widgets-19.08.3.tar.xz.sig
 Summary  : Widgets for Baloo
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.1
@@ -86,14 +86,14 @@ locales components for the baloo-widgets package.
 
 
 %prep
-%setup -q -n baloo-widgets-19.08.2
+%setup -q -n baloo-widgets-19.08.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1570731083
+export SOURCE_DATE_EPOCH=1573155583
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -110,12 +110,12 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1570731083
+export SOURCE_DATE_EPOCH=1573155583
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/baloo-widgets
-cp COPYING %{buildroot}/usr/share/package-licenses/baloo-widgets/COPYING
-cp COPYING.LIB %{buildroot}/usr/share/package-licenses/baloo-widgets/COPYING.LIB
-cp COPYING.README %{buildroot}/usr/share/package-licenses/baloo-widgets/COPYING.README
+cp %{_builddir}/baloo-widgets-19.08.3/COPYING %{buildroot}/usr/share/package-licenses/baloo-widgets/4cc77b90af91e615a64ae04893fdffa7939db84c
+cp %{_builddir}/baloo-widgets-19.08.3/COPYING.LIB %{buildroot}/usr/share/package-licenses/baloo-widgets/01a6b4bf79aca9b556822601186afab86e8c4fbf
+cp %{_builddir}/baloo-widgets-19.08.3/COPYING.README %{buildroot}/usr/share/package-licenses/baloo-widgets/6070c553a9e29baa98a1fb7ae983e8d7fa14b7d7
 pushd clr-build
 %make_install
 popd
@@ -149,16 +149,16 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib64/libKF5BalooWidgets.so.19.8.2
+/usr/lib64/libKF5BalooWidgets.so.19.8.3
 /usr/lib64/libKF5BalooWidgets.so.5
 /usr/lib64/qt5/plugins/baloofilepropertiesplugin.so
 /usr/lib64/qt5/plugins/kf5/kfileitemaction/tagsfileitemaction.so
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/baloo-widgets/COPYING
-/usr/share/package-licenses/baloo-widgets/COPYING.LIB
-/usr/share/package-licenses/baloo-widgets/COPYING.README
+/usr/share/package-licenses/baloo-widgets/01a6b4bf79aca9b556822601186afab86e8c4fbf
+/usr/share/package-licenses/baloo-widgets/4cc77b90af91e615a64ae04893fdffa7939db84c
+/usr/share/package-licenses/baloo-widgets/6070c553a9e29baa98a1fb7ae983e8d7fa14b7d7
 
 %files locales -f baloowidgets5.lang
 %defattr(-,root,root,-)
