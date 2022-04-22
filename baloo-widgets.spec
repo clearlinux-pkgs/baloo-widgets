@@ -5,14 +5,14 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : baloo-widgets
-Version  : 21.12.3
-Release  : 50
-URL      : https://download.kde.org/stable/release-service/21.12.3/src/baloo-widgets-21.12.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/21.12.3/src/baloo-widgets-21.12.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/21.12.3/src/baloo-widgets-21.12.3.tar.xz.sig
+Version  : 22.04.0
+Release  : 51
+URL      : https://download.kde.org/stable/release-service/22.04.0/src/baloo-widgets-22.04.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/22.04.0/src/baloo-widgets-22.04.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/22.04.0/src/baloo-widgets-22.04.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
-License  : GPL-2.0 LGPL-2.1
+License  : GPL-2.0 GPL-3.0 LGPL-2.0 LGPL-2.1 LGPL-3.0
 Requires: baloo-widgets-bin = %{version}-%{release}
 Requires: baloo-widgets-data = %{version}-%{release}
 Requires: baloo-widgets-lib = %{version}-%{release}
@@ -23,7 +23,6 @@ BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : extra-cmake-modules-data
 BuildRequires : kfilemetadata-dev
-BuildRequires : qtbase-dev mesa-dev
 
 %description
 No detailed description available
@@ -86,15 +85,15 @@ locales components for the baloo-widgets package.
 
 
 %prep
-%setup -q -n baloo-widgets-21.12.3
-cd %{_builddir}/baloo-widgets-21.12.3
+%setup -q -n baloo-widgets-22.04.0
+cd %{_builddir}/baloo-widgets-22.04.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1646528306
+export SOURCE_DATE_EPOCH=1650664082
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -110,12 +109,20 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1646528306
+export SOURCE_DATE_EPOCH=1650664082
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/baloo-widgets
-cp %{_builddir}/baloo-widgets-21.12.3/COPYING %{buildroot}/usr/share/package-licenses/baloo-widgets/4cc77b90af91e615a64ae04893fdffa7939db84c
-cp %{_builddir}/baloo-widgets-21.12.3/COPYING.LIB %{buildroot}/usr/share/package-licenses/baloo-widgets/01a6b4bf79aca9b556822601186afab86e8c4fbf
-cp %{_builddir}/baloo-widgets-21.12.3/COPYING.README %{buildroot}/usr/share/package-licenses/baloo-widgets/6070c553a9e29baa98a1fb7ae983e8d7fa14b7d7
+cp %{_builddir}/baloo-widgets-22.04.0/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/baloo-widgets/3e8971c6c5f16674958913a94a36b1ea7a00ac46
+cp %{_builddir}/baloo-widgets-22.04.0/LICENSES/GPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/baloo-widgets/2123756e0b1fc8243547235a33c0fcabfe3b9a51
+cp %{_builddir}/baloo-widgets-22.04.0/LICENSES/LGPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/baloo-widgets/a4c60b3fefda228cd7439d3565df043192fef137
+cp %{_builddir}/baloo-widgets-22.04.0/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/baloo-widgets/a4c60b3fefda228cd7439d3565df043192fef137
+cp %{_builddir}/baloo-widgets-22.04.0/LICENSES/LGPL-2.1-only.txt %{buildroot}/usr/share/package-licenses/baloo-widgets/81b58c89ceef8e9f8bd5d00a287edbd15f9d3567
+cp %{_builddir}/baloo-widgets-22.04.0/LICENSES/LGPL-2.1-or-later.txt %{buildroot}/usr/share/package-licenses/baloo-widgets/81b58c89ceef8e9f8bd5d00a287edbd15f9d3567
+cp %{_builddir}/baloo-widgets-22.04.0/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/baloo-widgets/19d98e1b6f8ef12849ea4012a052d3907f336c91
+cp %{_builddir}/baloo-widgets-22.04.0/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/baloo-widgets/7d9831e05094ce723947d729c2a46a09d6e90275
+cp %{_builddir}/baloo-widgets-22.04.0/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/baloo-widgets/7d9831e05094ce723947d729c2a46a09d6e90275
+cp %{_builddir}/baloo-widgets-22.04.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/baloo-widgets/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/baloo-widgets-22.04.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/baloo-widgets/e458941548e0864907e654fa2e192844ae90fc32
 pushd clr-build
 %make_install
 popd
@@ -149,16 +156,20 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib64/libKF5BalooWidgets.so.21.12.3
+/usr/lib64/libKF5BalooWidgets.so.22.04.0
 /usr/lib64/libKF5BalooWidgets.so.5
 /usr/lib64/qt5/plugins/kf5/kfileitemaction/tagsfileitemaction.so
 /usr/lib64/qt5/plugins/kf5/propertiesdialog/baloofilepropertiesplugin.so
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/baloo-widgets/01a6b4bf79aca9b556822601186afab86e8c4fbf
-/usr/share/package-licenses/baloo-widgets/4cc77b90af91e615a64ae04893fdffa7939db84c
-/usr/share/package-licenses/baloo-widgets/6070c553a9e29baa98a1fb7ae983e8d7fa14b7d7
+/usr/share/package-licenses/baloo-widgets/19d98e1b6f8ef12849ea4012a052d3907f336c91
+/usr/share/package-licenses/baloo-widgets/2123756e0b1fc8243547235a33c0fcabfe3b9a51
+/usr/share/package-licenses/baloo-widgets/3e8971c6c5f16674958913a94a36b1ea7a00ac46
+/usr/share/package-licenses/baloo-widgets/7d9831e05094ce723947d729c2a46a09d6e90275
+/usr/share/package-licenses/baloo-widgets/81b58c89ceef8e9f8bd5d00a287edbd15f9d3567
+/usr/share/package-licenses/baloo-widgets/a4c60b3fefda228cd7439d3565df043192fef137
+/usr/share/package-licenses/baloo-widgets/e458941548e0864907e654fa2e192844ae90fc32
 
 %files locales -f baloowidgets5.lang
 %defattr(-,root,root,-)
