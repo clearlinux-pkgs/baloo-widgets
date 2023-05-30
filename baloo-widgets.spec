@@ -7,7 +7,7 @@
 #
 Name     : baloo-widgets
 Version  : 23.04.1
-Release  : 65
+Release  : 66
 URL      : https://download.kde.org/stable/release-service/23.04.1/src/baloo-widgets-23.04.1.tar.xz
 Source0  : https://download.kde.org/stable/release-service/23.04.1/src/baloo-widgets-23.04.1.tar.xz
 Source1  : https://download.kde.org/stable/release-service/23.04.1/src/baloo-widgets-23.04.1.tar.xz.sig
@@ -97,7 +97,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1684785091
+export SOURCE_DATE_EPOCH=1685482130
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -130,7 +130,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1684785091
+export SOURCE_DATE_EPOCH=1685482130
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/baloo-widgets
 cp %{_builddir}/baloo-widgets-%{version}/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/baloo-widgets/3e8971c6c5f16674958913a94a36b1ea7a00ac46 || :
@@ -167,7 +167,6 @@ popd
 
 %files dev
 %defattr(-,root,root,-)
-/V3/usr/lib64/libKF5BalooWidgets.so
 /usr/include/KF5/BalooWidgets/Baloo/FileMetaDataConfigWidget
 /usr/include/KF5/BalooWidgets/Baloo/FileMetaDataWidget
 /usr/include/KF5/BalooWidgets/Baloo/TagWidget
@@ -184,7 +183,6 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /V3/usr/lib64/libKF5BalooWidgets.so.23.04.1
-/V3/usr/lib64/libKF5BalooWidgets.so.5
 /V3/usr/lib64/qt5/plugins/kf5/kfileitemaction/tagsfileitemaction.so
 /V3/usr/lib64/qt5/plugins/kf5/propertiesdialog/baloofilepropertiesplugin.so
 /usr/lib64/libKF5BalooWidgets.so.23.04.1
