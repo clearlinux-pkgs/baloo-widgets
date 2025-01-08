@@ -9,7 +9,7 @@
 #
 Name     : baloo-widgets
 Version  : 24.12.0
-Release  : 89
+Release  : 90
 URL      : https://download.kde.org/stable/release-service/24.12.0/src/baloo-widgets-24.12.0.tar.xz
 Source0  : https://download.kde.org/stable/release-service/24.12.0/src/baloo-widgets-24.12.0.tar.xz
 Source1  : https://download.kde.org/stable/release-service/24.12.0/src/baloo-widgets-24.12.0.tar.xz.sig
